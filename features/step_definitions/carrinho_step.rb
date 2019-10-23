@@ -21,6 +21,11 @@ Então("deve ser adicionado {int} unidade desse produto no carrinho") do |quanti
 end
   
 
-Então("o valor total deve ser de {string}") do |string|
+Então("o valor total deve ser de {string}") do |valor_total|
+    
+    cart = find('#cart')
+    total = cart.find('tr', text: 'Total:').find('td')
+    expect(total.text).to have_text valor_total
+
 end
   
