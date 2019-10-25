@@ -30,4 +30,30 @@ Então("o valor total deve ser de {string}") do |valor_total|
     expect(total.text).to have_text valor_total
 
 end
+
+# Lista de produtos
+
+Dado("que os produtos desejados são:") do |table|
+
+    @product_list = table.hashes
+end
+  
+Quando("eu adiciono todos os itens") do
+    
+    @product_list.each do |prod|
+        prod["quantidade"].to_i.times do
+            find('.menu-item-info-box', text: prod["nome"].upcase).find('.add-to-cart').click            
+        end
+    end
+end
+
+Então("vejo todos os itens no carrinho") do
+    
+    cart = find('#cart')
+    
+    @product_list.each do |prod|
+        expect(cart).to have_text "(#{prod["quantidade"]}x) #{prod["nome"]}"
+    end
+end
+  
   

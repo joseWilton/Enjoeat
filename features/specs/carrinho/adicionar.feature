@@ -14,7 +14,6 @@ Funcionalidade: Adicionar ao carrinho
         Então deve ser adicionado 1 unidade(s) desse produto no carrinho
         E o valor total deve ser de "R$ 8,70"
 
-    @temp
     Cenario: Adicionar 2 unidades
 
         Dado que o produto desejado é "Donut"
@@ -23,14 +22,15 @@ Funcionalidade: Adicionar ao carrinho
         Então deve ser adicionado 2 unidade(s) desse produto no carrinho
         E o valor total deve ser de "R$ 5,00"
 
+    @temp
     Cenario: Adicionar varios itens
         
         Dado que os produtos desejados são:
-            |nome                   |preco    |
-            |Cup Cake               |R$ 8,70  |
-            |Donut                  |R$ 2,50  |
-            |Pão Artesanal Italiano |R$ 15,90 |
+            |nome                   |preco    |quantidade   |
+            |Cup Cake               |R$ 8,70  |1            |
+            |Donut                  |R$ 2,50  |2            |
+            |Pão Artesanal Italiano |R$ 15,90 |2            |
         Quando eu adiciono todos os itens 
         Então vejo todos os itens no carrinho
-        E valor total deve ser de "R$ 27,10"
+        E o valor total deve ser de "R$ 45,50"
     
