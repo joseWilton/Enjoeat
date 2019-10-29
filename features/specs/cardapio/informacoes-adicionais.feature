@@ -1,9 +1,9 @@
 #language: pt
 
 Funcionalidade: Informações adicionais
-    Paara  que eu possa ver as informações adicionais
+    Para  que eu possa ver as informações adicionais
     Sendo um usuario que escolheu um restaurante
-    Posso ver a categoria descrição detalhada e horarios de funcionamento
+    Posso ver a categoria, descrição detalhada e horarios de funcionamento
 
     @infos
     Cenario: Detalhes do restaurante

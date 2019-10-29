@@ -22,7 +22,6 @@ Funcionalidade: Adicionar ao carrinho
         Então deve ser adicionado 2 unidade(s) desse produto no carrinho
         E o valor total deve ser de "R$ 5,00"
 
-    @temp
     Cenario: Adicionar varios itens
         
         Dado que os produtos desejados são:
