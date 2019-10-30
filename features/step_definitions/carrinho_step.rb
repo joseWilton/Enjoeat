@@ -12,7 +12,7 @@ end
 Quando("eu adiciono {int} unidade\\(s)") do |quantidade|
     
     quantidade.times do
-        find('.menu-item-info-box', text: @produto_nome.upcase).find('.add-to-cart').click        
+        find('.menu-item-info-box', text: @produto_nome.upcase).find('.add-to-cart').click
     end
 end
 
@@ -20,6 +20,7 @@ Então("deve ser adicionado {int} unidade\\(s) desse produto no carrinho") do |q
 
     cart = find('#cart')
     expect(cart).to have_text "(#{quantidade}x) #{@produto_nome}"
+    
 end
   
 
@@ -62,11 +63,9 @@ end
 Dado("que eu tenho os seguintes itens no carrinho:") do |table|
     
     @product_list = table.hashes
-    @product_list.each do |prod|
-        prod["quantidade"].to_i.times do
-            find('.menu-item-info-box', text: prod["nome"].upcase).find('.add-to-cart').click            
-        end
-    end
+    steps %[
+        Quando eu adiciono todos os itens
+    ]
 end
 
 Quando("eu remover somente o {int}") do |item|
@@ -85,10 +84,16 @@ Quando("eu remover todos os itens") do
     end
 end
 
+Quando("eu limpo meu carrinho") do
+
+    click_button 'Limpar'
+end
+  
 Então("vejo a seguinte mensagem no carrinho {string}") do |msg|
 
     cart = find('#cart')
     expect(cart).to have_text msg
 end
+
   
   

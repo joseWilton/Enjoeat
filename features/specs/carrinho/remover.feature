@@ -1,6 +1,6 @@
 #language: pt
 
-@bread_bakery
+@bread_bakery  
 Funcionalidade: Remover do carrinho
     Para que eu possa manter meu carrinho apenas com itens desejados 
     Sendo um cliente que desistiu de um ou mais produtos
@@ -30,3 +30,9 @@ Funcionalidade: Remover do carrinho
 
         Quando eu remover todos os itens
         Então vejo a seguinte mensagem no carrinho "Seu carrinho está vazio!"
+    
+    Cenario: Limpar carrinho
+
+        Quando eu limpo meu carrinho
+        Então vejo a seguinte mensagem no carrinho "Seu carrinho está vazio!"
+        
