@@ -26,6 +26,7 @@ Funcionalidade: Remover do carrinho
         |1   |"R$ 24,60" | 
         |2   |"R$ 11,20" | 
 
+    @temp1
     Cenario: Remover todos os itens
 
         Quando eu remover todos os itens

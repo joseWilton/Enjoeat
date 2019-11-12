@@ -12,7 +12,7 @@ end
 Quando("eu adiciono {int} unidade\\(s)") do |quantidade|
     
     quantidade.times do
-        find('.menu-item-info-box', text: @produto_nome.upcase).find('.add-to-cart').click
+        @restaurant_page.add_to_cart(@produto_nome)
     end
 end
 
@@ -25,7 +25,7 @@ end
 
 Então("o valor total deve ser de {string}") do |valor_total|
     
-    expect(cart.total.text).to have_text valor_total
+    expect(@cart.total.text).to have_text valor_total
 
 end
 
@@ -39,8 +39,8 @@ end
 Quando("eu adiciono todos os itens") do
     
     @product_list.each do |prod|
-        prod["quantidade"].to_i.times do
-            find('.menu-item-info-box', text: prod["nome"].upcase).find('.add-to-cart').click            
+        prod["quantidade"].to_i.times do       
+            @restaurant_page.add_to_cart(prod["nome"])          
         end
     end
 end
@@ -80,7 +80,7 @@ end
 
 Quando("eu limpo meu carrinho") do
 
-    click_button 'Limpar'
+    @cart.clean
 end
   
 Então("vejo a seguinte mensagem no carrinho {string}") do |msg|
