@@ -18,14 +18,14 @@ end
 
 Então("deve ser adicionado {int} unidade\\(s) desse produto no carrinho") do |quantidade|
 
-    expect(@cart.box).to have_text "(#{quantidade}x) #{@produto_nome}"
+    expect(@restaurant_page.cart.box).to have_text "(#{quantidade}x) #{@produto_nome}"
     
 end
   
 
 Então("o valor total deve ser de {string}") do |valor_total|
     
-    expect(@cart.total.text).to have_text valor_total
+    expect(@restaurant_page.cart.total.text).to have_text valor_total
 
 end
 
@@ -48,7 +48,7 @@ end
 Então("vejo todos os itens no carrinho") do
         
     @product_list.each do |prod|
-        expect(@cart.box).to have_text "(#{prod["quantidade"]}x) #{prod["nome"]}"
+        expect(@restaurant_page.cart.box).to have_text "(#{prod["quantidade"]}x) #{prod["nome"]}"
     end
 end
   
@@ -65,7 +65,7 @@ end
 
 Quando("eu remover somente o {int}") do |item|
 
-    @cart.remove_item(item)
+    @restaurant_page.cart.remove_item(item)
 end
 
 ######### Remover todos os itens ##########
@@ -74,19 +74,19 @@ Quando("eu remover todos os itens") do
   
     @product_list.each_with_index do |value, idx|
         
-        @cart.remove_item(idx)
+        @restaurant_page.cart.remove_item(idx)
     end
 end
 
 Quando("eu limpo meu carrinho") do
 
-    @cart.clean
+    @restaurant_page.cart.clean
 end
   
 Então("vejo a seguinte mensagem no carrinho {string}") do |msg|
 
     
-    expect(@cart.box).to have_text msg
+    expect(@restaurant_page.cart.box).to have_text msg
 end
 
   

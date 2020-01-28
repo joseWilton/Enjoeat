@@ -1,6 +1,6 @@
 
 
-class CartPage
+class CartView
     include Capybara::DSL
     
     def box
