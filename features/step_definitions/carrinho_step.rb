@@ -89,5 +89,36 @@ Então("vejo a seguinte mensagem no carrinho {string}") do |msg|
     expect(@restaurant_page.cart.box).to have_text msg
 end
 
+
+####### Fechar pedido ###########
+
+Dado("que adiciono  os seguintes itens no carrinho:") do |table|
+
+    @product_list = table.hashes
+    steps %[
+        Quando eu adiciono todos os itens
+    ]
+end
+
+Quando("eu fecho o meu carrinho") do
+
+    @restaurant_page.cart.close
+end
+
+Então("o total de itens deve ser igual a {string}") do |total_items|
+
+    expect(@order_page.cost_shipping[0]).to have_text total_items
+end
+
+Então("o valor do frete deve ser igual a {string}") do |shipping|
+
+    expect(@order_page.cost_shipping[1]).to have_text shipping
+end
+
+Então("o valor total da compra deve ser igual a {string}") do |total_cart|
+
+    expect(@order_page.cost_shipping[2]).to have_text total_cart
+
+end
   
   
